@@ -108,8 +108,8 @@
 
 + (Promise *)or:(NSArray *)promises
 {
-    int count = promises.count;
-    __block int rejectedCount = 0;
+    NSUInteger count = promises.count;
+    __block NSUInteger rejectedCount = 0;
     Deferred *deferred = [[Deferred alloc] init];
     
     // any promise resolves our deferred
@@ -131,7 +131,7 @@
 
 + (Promise *)and:(NSArray *)promises
 {
-    int count = promises.count;
+    NSUInteger count = promises.count;
     __block int resolvedCount = 0;
     Deferred *deferred = [[Deferred alloc] init];
     
