@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^bound_block)(void);
-typedef id (^transform_block)(id);
+typedef id (^transform_block)(id object);
 
 @class Deferred;
 @class DispatchPromise;
 @class Promise;
 
-typedef void (^resolved_block)(id);
-typedef void (^rejected_block)(NSError *);
+typedef void (^resolved_block)(id object);
+typedef void (^rejected_block)(NSError * error);
 typedef void (^any_block)(void);
 
 typedef Promise *(^promise_returning_block)();
@@ -31,10 +31,10 @@ typedef enum {
 @interface Promise : NSObject {
     NSMutableArray *_callbackBindings;
     dispatch_queue_t _queue;
-    
+
     NSObject *_stateLock;
     PromiseState _state;
-    
+
     id _result;
     NSError *_reason;
 }
@@ -82,4 +82,3 @@ typedef enum {
 - (void)executeBlock:(bound_block)block;
 
 @end
-
