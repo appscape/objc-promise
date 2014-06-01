@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
   s.name = 'objc-promise'
   s.version = '0.1'
-  s.platform = :ios, '5.0'
+  s.ios.platform = :ios, '5.0'
+  s.osx.platform = :osx, '10.6'
   s.license = 'MIT'
   s.summary = 'Promises'
   s.homepage = 'https://github.com/mproberts/objc-promise'
